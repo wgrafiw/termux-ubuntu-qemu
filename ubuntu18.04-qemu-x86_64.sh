@@ -3,7 +3,7 @@ pkg up -y && pkg in wget proot qemu-user-x86_64 -y
 folder=ubuntu-fs
 if [ -d "$folder" ]; then
 	first=1
-	echo "skipping downloading"
+	echo "跳过下载"
 fi
 tarball="ubuntu.tar.gz"
 if [ "$first" != 1 ];then
@@ -11,9 +11,9 @@ if [ "$first" != 1 ];then
 	cur=`pwd`
 	mkdir -p "$folder"
 	cd "$folder"
-	echo "decompressing ubuntu image"
+	echo "解压ubuntu镜像"
 	proot --link2symlink tar -xf ${cur}/${tarball} --exclude='dev'||:
-	echo "fixing nameserver, otherwise it can't connect to the internet"
+	echo "修复DNS，否则它将无法连到互联网"
 	echo "nameserver 1.1.1.1" > ubuntu-fs/etc/resolv.conf
 	cd "$cur"
 fi
