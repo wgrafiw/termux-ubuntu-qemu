@@ -62,3 +62,4 @@ chmod +x $bin
 echo "你现在可以使用 ./${bin} 启动Ubuntu"
 echo "如果遇到lib缺失请从/system/lib64找到对应lib复制到/data/data/com.termux/files/usr/lib"
 echo "例如：cp /system/lib64/libm.so /data/data/com.termux/files/usr/lib"
+echo "在目前看来，qemu-x86_64并不支持i386架构的软件，所以此系统并不实用"
