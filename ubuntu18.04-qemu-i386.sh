@@ -13,7 +13,7 @@ if [ "$first" != 1 ];then
 	cd "$folder"
 	echo "decompressing ubuntu image"
 	proot --link2symlink tar -xf ${cur}/${tarball} --exclude='dev'||:
-	echo "fixing nameserver, otherwise it can't connect to the internet"
+	echo "修复DNS，否则它将无法连到互联网"
 	echo "nameserver 1.1.1.1" > ubuntu-fs/etc/resolv.conf
 	cd "$cur"
 fi
