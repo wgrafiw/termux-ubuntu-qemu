@@ -14,7 +14,7 @@ if [ "$first" != 1 ];then
 	echo "decompressing ubuntu image"
 	proot --link2symlink tar -xf ${cur}/${tarball} --exclude='dev'||:
 	echo "fixing nameserver, otherwise it can't connect to the internet"
-	echo "nameserver 114.114.114.114" > ubuntu-fs/etc/resolv.conf
+	echo "nameserver 1.1.1.1" > ubuntu-fs/etc/resolv.conf
 	cd "$cur"
 fi
 mkdir -p binds
@@ -45,6 +45,7 @@ command+=" /usr/bin/env -i"
 command+=" HOME=/root"
 command+=" PATH=/usr/local/sbin:/usr/local/bin:/bin:/usr/bin:/sbin:/usr/sbin:/usr/games:/usr/local/games"
 command+=" TERM=\$TERM"
+## 将下行更改为command+=" LANG=zh_CN.utf8"即可默认显示中文(需先安装中文语言包)
 command+=" LANG=C.UTF-8"
 command+=" /bin/bash --login"
 com="\$@"
