@@ -14,7 +14,7 @@ if [ "$first" != 1 ];then
 	echo "解压ubuntu镜像"
 	proot --link2symlink tar -xf ${cur}/${tarball} --exclude='dev'||:
 	echo "修复DNS，否则它将无法连到互联网"
-	echo "nameserver 1.1.1.1" > ubuntu-fs/etc/resolv.conf
+	echo "nameserver 1.1.1.1" > etc/resolv.conf
 	cd "$cur"
 fi
 mkdir -p binds
