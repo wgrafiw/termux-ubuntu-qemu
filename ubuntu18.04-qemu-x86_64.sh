@@ -7,14 +7,14 @@ if [ -d "$folder" ]; then
 fi
 tarball="ubuntu.tar.gz"
 if [ "$first" != 1 ];then
-		wget "https://partner-images.canonical.com/core/bionic/current/ubuntu-bionic-core-cloudimg-amd64-root.tar.gz" -O $tarball
+	wget "https://partner-images.canonical.com/core/bionic/current/ubuntu-bionic-core-cloudimg-amd64-root.tar.gz" -O $tarball
 	cur=`pwd`
 	mkdir -p "$folder"
 	cd "$folder"
 	echo "解压ubuntu镜像"
 	proot --link2symlink tar -xf ${cur}/${tarball} --exclude='dev'||:
 	echo "修复DNS，否则它将无法连到互联网"
-	echo "nameserver 1.1.1.1" > ubuntu-fs/etc/resolv.conf
+	echo "nameserver 1.1.1.1" > etc/resolv.conf
 	cd "$cur"
 fi
 mkdir -p binds
