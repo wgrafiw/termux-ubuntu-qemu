@@ -7,7 +7,7 @@ if [ -d "$folder" ]; then
 fi
 tarball="ubuntu.tar.gz"
 if [ "$first" != 1 ];then
-		wget "https://partner-images.canonical.com/core/bionic/current/ubuntu-bionic-core-cloudimg-amd64-root.tar.gz" -O $tarball
+		wget "https://partner-images.canonical.com/core/bionic/current/ubuntu-bionic-core-cloudimg-i386-root.tar.gz" -O $tarball
 	cur=`pwd`
 	mkdir -p "$folder"
 	cd "$folder"
